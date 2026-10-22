@@ -1,0 +1,941 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Aadhithya | AI & ML Student Portfolio</title>
+  <meta name="description" content="Official portfolio of Aadhithya, a B.E. Computer Science and Engineering student specializing in Artificial Intelligence and Machine Learning.">
+  <meta name="theme-color" content="#0b1120">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card: #111827;
+      --card-light: #172033;
+      --border: #263247;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --primary: #60a5fa;
+      --secondary: #38bdf8;
+      --accent: #a78bfa;
+      --success: #4ade80;
+      --max-width: 1050px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 17, 32, .94);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .logo span,
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .82rem;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .menu-toggle {
+      display: none;
+      padding: .5rem .75rem;
+      color: var(--text);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 610px;
+      display: flex;
+      align-items: center;
+      padding: 90px 0 70px;
+      background: radial-gradient(
+        circle at 80% 20%,
+        rgba(96, 165, 250, .14),
+        transparent 35%
+      );
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hello {
+      color: var(--primary);
+      font-size: .95rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2.7rem, 7vw, 5rem);
+      line-height: 1.1;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-role {
+      color: var(--muted);
+      font-size: 1.2rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-description {
+      max-width: 680px;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: .75rem 1.3rem;
+      border-radius: 8px;
+      font-size: .9rem;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #07101f;
+    }
+
+    .btn-primary:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    section {
+      padding: 80px 0;
+      scroll-margin-top: 70px;
+    }
+
+    .section-heading {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-label {
+      color: var(--primary);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: .5rem;
+    }
+
+    .section-heading h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.7rem, 4vw, 2rem);
+      line-height: 1.3;
+    }
+
+    .section-heading p {
+      max-width: 650px;
+      color: var(--muted);
+      margin-top: .5rem;
+    }
+
+    .about-text {
+      max-width: 800px;
+      color: var(--muted);
+    }
+
+    .highlight {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .skills-grid,
+    .learning-grid,
+    .achievement-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card,
+    .learning-card,
+    .achievement,
+    .project {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: .3s;
+    }
+
+    .skill-card,
+    .learning-card {
+      padding: 1.4rem;
+    }
+
+    .skill-card:hover,
+    .project:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+
+    .skill-card h3,
+    .learning-card h3 {
+      font-size: 1rem;
+      margin-bottom: .4rem;
+    }
+
+    .skill-card p,
+    .learning-card p {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.3rem;
+      align-items: stretch;
+    }
+
+    .project {
+      padding: 1.6rem;
+    }
+
+    .project-number {
+      color: var(--primary);
+      font-size: .8rem;
+      font-weight: 700;
+    }
+
+    .project h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.25rem;
+      margin: .4rem 0;
+    }
+
+    .project-tech {
+      color: var(--accent);
+      font-size: .8rem;
+      margin-bottom: .7rem;
+    }
+
+    .project p,
+    .project ul {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .project ul {
+      margin: .8rem 0 0 1.2rem;
+    }
+
+    .timeline {
+      border-left: 2px solid var(--border);
+      padding-left: 1.5rem;
+      margin-left: 5px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      left: -1.9rem;
+      top: 7px;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.05rem;
+    }
+
+    .institution {
+      color: var(--primary);
+      font-size: .9rem;
+      margin: .3rem 0;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: .8rem;
+      padding: .25rem .65rem;
+      border-radius: 20px;
+      background: rgba(74, 222, 128, .1);
+      color: var(--success);
+      font-size: .72rem;
+      font-weight: 600;
+    }
+
+    .achievement {
+      padding: 1rem;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .achievement::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: bold;
+      margin-right: .5rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .7rem;
+    }
+
+    .tag {
+      padding: .5rem .85rem;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background: var(--card);
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .tag:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, var(--card), var(--card-light));
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 2rem;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .contact-link {
+      display: inline-block;
+      padding: .7rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: .85rem;
+      transition: .3s;
+    }
+
+    .contact-link:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .note {
+      font-size: .8rem;
+      margin-top: 1rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--secondary);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 850px) {
+      .nav-links {
+        gap: .65rem;
+      }
+
+      .nav-links a {
+        font-size: .75rem;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .menu-toggle {
+        display: inline-block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 1rem 4%;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .8rem;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: .3rem 0;
+        font-size: .9rem;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 80px 0 60px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 12vw, 3.5rem);
+      }
+
+      .hero-role {
+        font-size: 1.05rem;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .skills-grid,
+      .learning-grid,
+      .achievement-list,
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        padding: 1.3rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav aria-label="Main navigation">
+    <div class="container nav-container">
+
+      <a href="#home" class="logo" aria-label="Aadhithya home">
+        A<span>.</span> AADHITHYA
+      </a>
+
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false" aria-controls="navLinks">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#learning">Learning</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="hello">HELLO, I'M</div>
+
+        <h1>Aadhithya <span>.</span></h1>
+
+        <div class="hero-role">
+          B.E. CSE Student | Artificial Intelligence & Machine Learning
+        </div>
+
+        <p class="hero-description">
+          I am a Computer Science and Engineering student specializing
+          in AI and ML. I am interested in programming, software
+          development, web technologies and building practical
+          applications. I enjoy learning new technologies and
+          improving my problem-solving skills.
+        </p>
+
+        <div class="buttons">
+          <a href="#projects" class="btn btn-primary">View My Projects</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-label">About Me</div>
+        <h2>Building skills through practical projects</h2>
+      </div>
+
+      <p class="about-text">
+        I'm <span class="highlight">Aadhithya</span>, a B.E. Computer
+        Science and Engineering student specializing in Artificial
+        Intelligence and Machine Learning.
+
+        <br><br>
+
+        My technical skills include Python, C, Java, HTML and CSS.
+        I am interested in data structures, web development,
+        software development and AI-based applications.
+
+        <br><br>
+
+        My goal is to improve my technical knowledge, solve
+        programming problems and create useful applications
+        using modern technologies.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-label">Technical Skills</div>
+        <h2>What I work with</h2>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <h3>Python Programming</h3>
+          <p>Programming fundamentals, problem solving and application development.</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>C Programming</h3>
+          <p>Algorithms, functions, arrays, pointers and data structures.</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Java</h3>
+          <p>Java fundamentals and object-oriented programming concepts.</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>HTML</h3>
+          <p>Structuring webpages with semantic HTML elements.</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>CSS</h3>
+          <p>Webpage styling, layouts and responsive design.</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Artificial Intelligence & ML</h3>
+          <p>Learning AI and machine learning concepts and applications.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-label">Projects</div>
+        <h2>My Projects</h2>
+        <p>Projects focused on game development and website design.</p>
+      </div>
+
+      <div class="projects">
+
+        <article class="project">
+          <div class="project-number">PROJECT 01</div>
+          <h3>Rock Paper Scissors Game</h3>
+
+          <div class="project-tech">
+            MIT App Inventor · Visual Programming
+          </div>
+
+          <p>
+            An interactive Rock Paper Scissors game developed
+            using MIT App Inventor. The player chooses Rock,
+            Paper or Scissors, and the computer generates a
+            choice to determine the result.
+          </p>
+
+          <ul>
+            <li>Designed a game interface.</li>
+            <li>Implemented the game rules.</li>
+            <li>Used random computer choices.</li>
+            <li>Displayed the result of each round.</li>
+          </ul>
+        </article>
+
+        <article class="project">
+          <div class="project-number">PROJECT 02</div>
+          <h3>Rock Paper Scissors Game Website</h3>
+
+          <div class="project-tech">
+            HTML · CSS · JavaScript
+          </div>
+
+          <p>
+            A website presenting the Rock Paper Scissors game,
+            its rules, features and working process in an
+            organized webpage.
+          </p>
+
+          <ul>
+            <li>Designed a user-friendly webpage.</li>
+            <li>Presented the game's rules and features.</li>
+            <li>Explained the game's working process.</li>
+            <li>Organized project information clearly.</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-label">Education</div>
+        <h2>Academic Journey</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+
+          <h3>B.E. Computer Science and Engineering</h3>
+
+          <div class="institution">
+            Specialization: Artificial Intelligence & Machine Learning
+          </div>
+
+          <p>College: [Add your college name]</p>
+          <p>Currently pursuing undergraduate studies.</p>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CURRENTLY LEARNING -->
+  <section id="learning">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-label">Currently Learning</div>
+        <h2>Growing my technical foundation</h2>
+      </div>
+
+      <div class="learning-grid">
+
+        <div class="learning-card">
+          <h3>Programming</h3>
+          <p>Practicing Python, C and Java through programming exercises.</p>
+          <span class="status">LEARNING</span>
+        </div>
+
+        <div class="learning-card">
+          <h3>Web Development</h3>
+          <p>Learning HTML and CSS to create responsive websites.</p>
+          <span class="status">LEARNING</span>
+        </div>
+
+        <div class="learning-card">
+          <h3>Data Structures</h3>
+          <p>Studying searching, sorting, linked lists and algorithms.</p>
+          <span class="status">LEARNING</span>
+        </div>
+
+        <div class="learning-card">
+          <h3>Artificial Intelligence & ML</h3>
+          <p>Building a foundation in AI and machine learning concepts.</p>
+          <span class="status">LEARNING</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-label">Achievements</div>
+        <h2>Certifications & Achievements</h2>
+        <p>
+          Add your actual course completions, certificates,
+          awards and academic achievements here.
+        </p>
+      </div>
+
+      <div class="achievement-list">
+
+        <div class="achievement">
+          [Add your first certification]
+        </div>
+
+        <div class="achievement">
+          [Add your second certification]
+        </div>
+
+        <div class="achievement">
+          [Add your third certification]
+        </div>
+
+        <div class="achievement">
+          [Add your academic achievement]
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERESTS -->
+  <section id="interests">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-label">Interests</div>
+        <h2>Areas I'm exploring</h2>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Artificial Intelligence</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Python</span>
+        <span class="tag">C Programming</span>
+        <span class="tag">Java</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">Data Structures</span>
+        <span class="tag">Software Development</span>
+        <span class="tag">Game Development</span>
+        <span class="tag">Web Development</span>
+        <span class="tag">Problem Solving</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+
+      <div class="section-heading">
+        <div class="section-label">Contact</div>
+        <h2>Let's connect</h2>
+      </div>
+
+      <div class="contact-box">
+
+        <p>
+          I'm interested in learning new technologies,
+          collaborating on projects and exploring opportunities
+          related to software development, AI and ML.
+        </p>
+
+        <div class="contact-links">
+
+          <!-- Replace with your real email -->
+          <a href="mailto:YOUR_EMAIL@gmail.com" class="contact-link">
+            ✉ Email
+          </a>
+
+          <!-- Replace with your real GitHub profile -->
+          <a href="https://github.com/YOUR_GITHUB_USERNAME"
+             target="_blank" rel="noopener noreferrer"
+             class="contact-link">
+            GitHub ↗
+          </a>
+
+          <!-- Replace with your real LinkedIn profile -->
+          <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_USERNAME/"
+             target="_blank" rel="noopener noreferrer"
+             class="contact-link">
+            LinkedIn ↗
+          </a>
+
+        </div>
+
+        <p class="note">
+          Remember to replace the contact placeholders with your
+          actual email address and profile links.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>
+        © <span id="year"></span> Aadhithya.
+        Built with HTML, CSS and JavaScript.
+      </p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Automatically update the copyright year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Mobile navigation menu
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", isOpen);
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    // Close mobile menu after selecting a section
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.textContent = "☰";
+      });
+    });
+  </script>
+
+</body>
+</html>
